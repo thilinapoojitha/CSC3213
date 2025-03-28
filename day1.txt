@@ -1,0 +1,82 @@
+01..............................
+.model small
+.stack 100h
+
+.data
+msg db "hello $"
+
+.code
+start:
+
+mov ax,@data
+mov ds,ax
+mov dx,offset msg
+mov ah,09h ;only for string
+int 21h
+
+mov ax,4c00h
+int 21h
+
+end start
+-----------------------------------------------------------------------
+.model small
+.stack 100h
+
+.data
+num db 5
+
+.code
+start:
+
+mov ax,@data
+mov ds,ax
+    
+;Print the number
+mov dl,num  ;dl= 5
+add dl,48    ;48+5  
+mov ah, 02h      
+int 21h
+
+mov ax,4c00h
+int 21h
+end start
+----------------------------------------------------------------------------
+.model small
+.stack 100h
+
+.data
+msg db "hello",13,"hii$"
+
+.code
+start:
+
+mov ax,@data
+mov ds,ax
+mov dx,offset msg
+mov ah,09h ;only for string
+int 21h
+
+mov ax,4c00h
+int 21h
+
+end start
+----------------------------------------------------------------------------
+.model small
+.stack 100h
+
+.data
+msg db "hello",10,"hi$"
+
+.code
+start:
+
+mov ax,@data
+mov ds,ax
+mov dx,offset msg
+mov ah,09h ;only for string
+int 21h
+
+mov ax,4c00h
+int 21h
+
+end start
